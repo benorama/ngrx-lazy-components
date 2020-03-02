@@ -1,0 +1,15 @@
+<div class="controls-container">
+    <h4>
+        {{name}}
+    </h4>
+    <p>
+        {{total$ | async}}
+    </p>
+    <p class="lead">
+        <button (click)="onIncrementClick()" class="btn btn-primary mr-3">+1</button>
+        <button (click)="onDecrementClick()" class="btn btn-primary">-1</button>
+    </p>
+    <p>
+        <button (click)="onResetClick()" class="btn btn-secondary btn-sm">Reset</button>
+    </p>
+</div>

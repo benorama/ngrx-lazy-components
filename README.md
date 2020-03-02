@@ -4,24 +4,27 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Build the libs:
+* `ng build counter-store-lib` 
+* `ng build counter-route-lib`
 
-## Code scaffolding
+This will generate libs in `dist`
+ 
+Build the custom element:
+* `npm run build:counter-controls-element`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This will generate the element in `dist` and concatenate the output in a single file copied to `demo-app/src/assets/counter-controls-element.js` (which is then loaded by `demo-app/src/index.html`)
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. 
 
-## Running unit tests
+## Sources
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+https://www.techiediaries.com/angular/angular-9-web-components-custom-elements-shadow-dom/
+https://blog.angulartraining.com/tutorial-how-to-create-custom-angular-elements-55aea29d80c5
+https://medium.com/angular-in-depth/how-to-compile-your-angular-components-library-into-web-components-47ff0ac73bd7
+https://medium.com/capital-one-tech/upgrading-with-angular-elements-eb3185e26382
+https://www.softwarearchitekt.at/aktuelles/6-steps-to-your-angular-based-microfrontend-shell/
+https://www.softwarearchitekt.at/aktuelles/your-options-for-building-angular-elements/
+https://medium.com/@tomastrajan/why-and-how-to-lazy-load-angular-libraries-a3bf1489fe24
+https://medium.com/@tomastrajan/the-best-way-to-lazy-load-angular-elements-97a51a5c2007

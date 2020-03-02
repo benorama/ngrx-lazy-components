@@ -1,0 +1,52 @@
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column text-center">
+    <header class="masthead mb-auto">
+        <div class="inner">
+            <h3 class="masthead-brand">Angular Lazy Loading Demo</h3>
+        </div>
+    </header>
+
+    <main role="main" class="inner cover">
+        <div class="row">
+            <div class="col-sm demo-card">
+                <button (click)="loadCounterDumb()" class="btn btn-primary">Load dumb</button>
+                <ng-container *ngIf="counterDumbComponent">
+                    <ng-template [ngComponentOutletInjector]="counterDumbInjector"
+                                 [ngComponentOutlet]="counterDumbComponent | async"></ng-template>
+                </ng-container>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm demo-card">
+                <button (click)="loadCounterControls()" class="btn btn-primary">Load controls</button>
+                <ng-container #counterControlsContainer></ng-container>
+            </div>
+            <div class="col-sm demo-card">
+                <button (click)="loadCounterControlsElement()" class="btn btn-primary">Load controls (el)</button>
+                <ng-container *ngIf="counterControlsElementVisible">
+                    <!-- *axLazyElement="counterControlsElementUrl" does not work -->
+                    <counter-controls-element
+                        name="Element"
+                        [total]="counterTotal$ | async"
+                        (decrement)="decrement()"
+                        (increment)="increment()"
+                        (reset)="reset()"></counter-controls-element>
+                </ng-container>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm demo-card">
+                <div class="btn-group" role="group">
+                    <a routerLink="/counter" class="btn btn-primary">Load route</a>
+                    <a routerLink="/counter-lib" class="btn btn-primary">Load route (lib)</a>
+                </div>
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </main>
+
+    <footer class="mastfoot mt-auto">
+        <div class="inner">
+            <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+        </div>
+    </footer>
+</div>

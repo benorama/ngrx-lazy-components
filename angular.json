@@ -1,6 +1,330 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
-  "newProjectRoot": "projects",
-  "projects": {}
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "version": 1,
+    "newProjectRoot": "projects",
+    "projects": {
+        "demo-app": {
+            "projectType": "application",
+            "schematics": {
+                "@schematics/angular:component": {
+                    "style": "scss"
+                }
+            },
+            "root": "projects/demo-app",
+            "sourceRoot": "projects/demo-app/src",
+            "prefix": "app",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options": {
+                        "outputPath": "dist/demo-app",
+                        "index": "projects/demo-app/src/index.html",
+                        "main": "projects/demo-app/src/main.ts",
+                        "polyfills": "projects/demo-app/src/polyfills.ts",
+                        "tsConfig": "projects/demo-app/tsconfig.app.json",
+                        "aot": true,
+                        "assets": [
+                            "projects/demo-app/src/favicon.ico",
+                            "projects/demo-app/src/assets"
+                        ],
+                        "styles": [
+                            "projects/demo-app/src/styles.scss"
+                        ],
+                        "scripts": []
+                    },
+                    "configurations": {
+                        "production": {
+                            "fileReplacements": [
+                                {
+                                    "replace": "projects/demo-app/src/environments/environment.ts",
+                                    "with": "projects/demo-app/src/environments/environment.prod.ts"
+                                }
+                            ],
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "extractCss": true,
+                            "namedChunks": false,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true,
+                            "budgets": [
+                                {
+                                    "type": "initial",
+                                    "maximumWarning": "2mb",
+                                    "maximumError": "5mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "6kb",
+                                    "maximumError": "10kb"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "options": {
+                        "browserTarget": "demo-app:build"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "demo-app:build:production"
+                        }
+                    }
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "demo-app:build"
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "projects/demo-app/src/test.ts",
+                        "polyfills": "projects/demo-app/src/polyfills.ts",
+                        "tsConfig": "projects/demo-app/tsconfig.spec.json",
+                        "karmaConfig": "projects/demo-app/karma.conf.js",
+                        "assets": [
+                            "projects/demo-app/src/favicon.ico",
+                            "projects/demo-app/src/assets"
+                        ],
+                        "styles": [
+                            "projects/demo-app/src/styles.scss"
+                        ],
+                        "scripts": []
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "projects/demo-app/tsconfig.app.json",
+                            "projects/demo-app/tsconfig.spec.json",
+                            "projects/demo-app/e2e/tsconfig.json"
+                        ],
+                        "exclude": [
+                            "**/node_modules/**"
+                        ]
+                    }
+                },
+                "e2e": {
+                    "builder": "@angular-devkit/build-angular:protractor",
+                    "options": {
+                        "protractorConfig": "projects/demo-app/e2e/protractor.conf.js",
+                        "devServerTarget": "demo-app:serve"
+                    },
+                    "configurations": {
+                        "production": {
+                            "devServerTarget": "demo-app:serve:production"
+                        }
+                    }
+                }
+            }
+        },
+        "counter-controls-element": {
+            "projectType": "application",
+            "schematics": {
+                "@schematics/angular:component": {
+                    "style": "scss"
+                }
+            },
+            "root": "projects/counter-controls-element",
+            "sourceRoot": "projects/counter-controls-element/src",
+            "prefix": "app",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options": {
+                        "outputPath": "dist/counter-controls-element",
+                        "index": "projects/counter-controls-element/src/index.html",
+                        "main": "projects/counter-controls-element/src/main.ts",
+                        "polyfills": "projects/counter-controls-element/src/polyfills.ts",
+                        "tsConfig": "projects/counter-controls-element/tsconfig.app.json",
+                        "aot": true,
+                        "assets": [
+                            "projects/counter-controls-element/src/favicon.ico",
+                            "projects/counter-controls-element/src/assets"
+                        ],
+                        "styles": [
+                            "projects/counter-controls-element/src/styles.scss"
+                        ],
+                        "scripts": []
+                    },
+                    "configurations": {
+                        "production": {
+                            "fileReplacements": [
+                                {
+                                    "replace": "projects/counter-controls-element/src/environments/environment.ts",
+                                    "with": "projects/counter-controls-element/src/environments/environment.prod.ts"
+                                }
+                            ],
+                            "optimization": true,
+                            "outputHashing": "none",
+                            "sourceMap": false,
+                            "extractCss": true,
+                            "namedChunks": false,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true,
+                            "budgets": [
+                                {
+                                    "type": "initial",
+                                    "maximumWarning": "2mb",
+                                    "maximumError": "5mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "6kb",
+                                    "maximumError": "10kb"
+                                }
+                            ],
+                        }
+                    }
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "options": {
+                        "browserTarget": "counter-controls-element:build"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "counter-controls-element:build:production"
+                        }
+                    }
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "counter-controls-element:build"
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "projects/counter-controls-element/src/test.ts",
+                        "polyfills": "projects/counter-controls-element/src/polyfills.ts",
+                        "tsConfig": "projects/counter-controls-element/tsconfig.spec.json",
+                        "karmaConfig": "projects/counter-controls-element/karma.conf.js",
+                        "assets": [
+                            "projects/counter-controls-element/src/favicon.ico",
+                            "projects/counter-controls-element/src/assets"
+                        ],
+                        "styles": [
+                            "projects/counter-controls-element/src/styles.scss"
+                        ],
+                        "scripts": []
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "projects/counter-controls-element/tsconfig.app.json",
+                            "projects/counter-controls-element/tsconfig.spec.json",
+                            "projects/counter-controls-element/e2e/tsconfig.json"
+                        ],
+                        "exclude": [
+                            "**/node_modules/**"
+                        ]
+                    }
+                },
+                "e2e": {
+                    "builder": "@angular-devkit/build-angular:protractor",
+                    "options": {
+                        "protractorConfig": "projects/counter-controls-element/e2e/protractor.conf.js",
+                        "devServerTarget": "counter-controls-element:serve"
+                    },
+                    "configurations": {
+                        "production": {
+                            "devServerTarget": "counter-controls-element:serve:production"
+                        }
+                    }
+                }
+            }
+        },
+        "counter-route-lib": {
+            "projectType": "library",
+            "root": "projects/counter-route-lib",
+            "sourceRoot": "projects/counter-route-lib/src",
+            "prefix": "lib",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-ng-packagr:build",
+                    "options": {
+                        "tsConfig": "projects/counter-route-lib/tsconfig.lib.json",
+                        "project": "projects/counter-route-lib/ng-package.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "tsConfig": "projects/counter-route-lib/tsconfig.lib.prod.json"
+                        }
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "projects/counter-route-lib/src/test.ts",
+                        "tsConfig": "projects/counter-route-lib/tsconfig.spec.json",
+                        "karmaConfig": "projects/counter-route-lib/karma.conf.js"
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "projects/counter-route-lib/tsconfig.lib.json",
+                            "projects/counter-route-lib/tsconfig.spec.json"
+                        ],
+                        "exclude": [
+                            "**/node_modules/**"
+                        ]
+                    }
+                }
+            }
+        },
+        "counter-store-lib": {
+            "projectType": "library",
+            "root": "projects/counter-store-lib",
+            "sourceRoot": "projects/counter-store-lib/src",
+            "prefix": "lib",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-ng-packagr:build",
+                    "options": {
+                        "tsConfig": "projects/counter-store-lib/tsconfig.lib.json",
+                        "project": "projects/counter-store-lib/ng-package.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "tsConfig": "projects/counter-store-lib/tsconfig.lib.prod.json"
+                        }
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "projects/counter-store-lib/src/test.ts",
+                        "tsConfig": "projects/counter-store-lib/tsconfig.spec.json",
+                        "karmaConfig": "projects/counter-store-lib/karma.conf.js"
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "projects/counter-store-lib/tsconfig.lib.json",
+                            "projects/counter-store-lib/tsconfig.spec.json"
+                        ],
+                        "exclude": [
+                            "**/node_modules/**"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "defaultProject": "demo-app"
 }
