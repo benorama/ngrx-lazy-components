@@ -23,8 +23,8 @@
             <div class="col-sm demo-card">
                 <button (click)="loadCounterControlsElement()" class="btn btn-primary">Load controls (el)</button>
                 <ng-container *ngIf="counterControlsElementVisible">
-                    <!-- *axLazyElement="counterControlsElementUrl" does not work -->
                     <counter-controls-element
+                        *axLazyElement="counterControlsElementUrl"
                         name="Element"
                         [total]="counterTotal$ | async"
                         (decrement)="decrement()"
