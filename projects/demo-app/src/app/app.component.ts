@@ -26,7 +26,7 @@ export class AppComponent {
     counterDumbComponent: Promise<Type<CounterDumbComponent>>;
     counterDumbInjector: Injector;
 
-    // Imperactive with ComponentFactoryResolver
+    // Imperative with ComponentFactoryResolver
     @ViewChild('counterControlsContainer', {read: ViewContainerRef}) counterControlsContainerRef: ViewContainerRef;
     counterControlsRef: ComponentRef<CounterControlsComponent>;
 
@@ -72,7 +72,7 @@ export class AppComponent {
         // OR /* webpackChunkName: 'counterDumbComponent' */ to generate counterDumbComponent.[hash].js
     }
 
-    // Imperactive with ComponentFactoryResolver
+    // Imperative with ComponentFactoryResolver
     loadCounterControls() {
         if (this.counterControlsRef) {
             return;
